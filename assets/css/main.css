@@ -1337,9 +1337,9 @@ span.fontawesome-text {
     font-size: 1.5em;
 }
 
-#menu-social a, .site-title a {
+.site-title a, .icons a {
     border: none;
-}
+} 
 
 
 p.edit-this {
