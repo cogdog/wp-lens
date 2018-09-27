@@ -18,6 +18,11 @@ All photos are represented via posts using featured images. Photos can be naviga
 
 As a WordPress theme, this site is not limited to the hard coded number of photos in the original template (it adds pagination links), plus they can be organized by category, tag, post date displayed via a widget on the right side.
 
+## Examples
+
+* demo version http://lab.cogdogblog.com/lens/
+* moments (Shawn White) http://shawn.earth/moments/
+
 ## Installing from Scratch
 
 Install this theme on any self hosted Wordpress site. No luck on Wordpress.com, get a real web hosting package. 
