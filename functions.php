@@ -27,7 +27,7 @@ function lens_setup() {
 /* --- excerpts ------------------------------------------------------------------------ */
 
 function lens_custom_excerpt_length( $length ) {
-    return 100;
+    return 70;
 }
 add_filter( 'excerpt_length', 'lens_custom_excerpt_length', 999 );
 
@@ -96,6 +96,28 @@ function lens_archive_navigation() {
 		</div><!-- .archive-nav-->
 						
 	<?php endif;
+}
+
+/* --- return last post url to hide in footer  ------------------------------------------ */
+function lens_get_last_pic() {
+	global $wp_query;
+	// total number pages
+	$numpages = $wp_query->max_num_pages;
+	
+	// current paged
+	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+	if ( $numpages > 1 AND $paged != $numpages  ) {
+		return( site_url() . '/page/' . $numpages );
+	} else {
+		return("");
+	}
+
+	/* get last post ID
+	$lastpic = get_posts("numberposts=1&fields=ids");
+	// return URL
+	return get_permalink($lastpic[0][0]);
+	*/
 }
 
 

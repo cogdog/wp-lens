@@ -129,7 +129,22 @@ var main = (function($) { var _ = {
 		// Left Arrow: Previous.
 			37: function() {
 				_.previous();
-			}
+			},
+		
+		
+		// (added by @cogdog for WP-Lens)	
+		
+		// ~ first slide 
+		
+			192: function() {
+				_.top();
+			},
+			
+		// backspace/delete last
+		
+			8: function() {
+				_.bottom();
+			} 
 
 	},
 
@@ -742,5 +757,24 @@ var main = (function($) { var _ = {
 			_.hide();
 
 	},
+	
+	// added by @cogdog for WP-Lens, goes to home page
+	top: function() {
+		url = $('.site-title a').attr('href');
+		
+		if (url) {
+            window.location = url;
+        }
+	},
+	
+	bottom: function() {
+		url = $('#lastpic a').attr('href');
+		
+		if (url) {
+            window.location = url;
+        }
+	},
+	
+	
 
 }; return _; })(jQuery); main.init();

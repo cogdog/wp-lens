@@ -79,9 +79,19 @@ With the Font Awesome icons, you can add any site you wish to be in your footer 
 
 ![](images/with-social-media-icons.jpg "")
 
+# Using Shortcuts
+
+The original theme comes with keyboard shortcuts to navigate through your photos, try the arrow keys to navigate among the displayed set of photos. The `esc` key toggles between full screen and normal view modes.
+
+WP-Lens comes with two extra ones:
+
+* `~` returns to the first page of photos (the site's home page)
+* `del` / `backspace` will take you to the last page of photos (if there is one)
+
 # Update History
 
 * v 0.1 Sept 23, 2018 First version hatched
+* v 0.2 Oct 29, 2018 shortcut keys added to navigate to top and bottom of all photo pages
 
  
 

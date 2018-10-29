@@ -1363,7 +1363,9 @@ ul.icons li {
     padding: 0 0.4em 0 0;
 }
 
-
+#lastpic {
+	display:none;
+}
 
 .archive-nav {
     margin: 0.5em 2em;
