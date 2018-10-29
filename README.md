@@ -21,7 +21,8 @@ As a WordPress theme, this site is not limited to the hard coded number of photo
 ## Examples
 
 * demo version http://lab.cogdogblog.com/lens/
-* moments (Shawn White) http://shawn.earth/moments/
+* Moments (Shawn White) http://shawn.earth/moments/
+* My Recent Pics https://lens.nostorynorm.com/
 
 ## Installing from Scratch
 
