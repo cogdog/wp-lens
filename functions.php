@@ -146,4 +146,9 @@ function lens_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'lens_scripts' );
+
+
+// Load plugin requirements file to display admin notices.
+require get_stylesheet_directory() . '/includes/splot-plugins.php';
+
 ?>
