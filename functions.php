@@ -23,6 +23,88 @@ function lens_setup() {
 
 }
 
+// change the name of admin menu items from "New Posts"
+// -- h/t https://wordpress.stackexchange.com/a/9224/14945
+// and of course the Codex http://codex.wordpress.org/Function_Reference/add_submenu_page
+
+add_action( 'admin_menu', 'lens_change_post_label' );
+add_action( 'init', 'lens_change_post_object' );
+
+// turn 'em from Posts to Collectables
+function lens_change_post_label() {
+    global $menu;
+    global $submenu;
+    
+    $thing_name = 'Photo';
+    
+    $menu[5][0] = $thing_name . 's';
+    $submenu['edit.php'][5][0] = 'All ' . $thing_name . 's';
+    $submenu['edit.php'][10][0] = 'Add ' . $thing_name;
+    $submenu['edit.php'][15][0] = $thing_name .' Categories';
+    $submenu['edit.php'][16][0] = $thing_name .' Tags';
+    echo '';
+
+}
+
+// change the prompts and stuff for posts to be relevant to collectables
+function lens_change_post_object() {
+
+    $thing_name = 'Photo';
+
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name =  $thing_name . 's';;
+    $labels->singular_name =  $thing_name;
+    $labels->add_new = 'Add ' . $thing_name;
+    $labels->add_new_item = 'Add ' . $thing_name;
+    $labels->edit_item = 'Edit ' . $thing_name;
+    $labels->new_item =  $thing_name;
+    $labels->view_item = 'View ' . $thing_name;
+    $labels->search_items = 'Search ' . $thing_name;
+    $labels->not_found = 'No ' . $thing_name . ' found';
+    $labels->not_found_in_trash = 'No ' .  $thing_name . ' found in Trash';
+    $labels->all_items = 'All ' . $thing_name;
+    $labels->menu_name =  $thing_name;
+    $labels->name_admin_bar =  $thing_name;
+}
+
+// edit the post editing admin messages to reflect use of Collectables
+// h/t http://www.joanmiquelviade.com/how-to-change-the-wordpress-post-updated-messages-of-the-edit-screen/
+
+function lens_post_updated_messages ( $msg ) {
+
+	$thing_name = 'Photo';
+	
+    $msg[ 'post' ] = array (
+         0 => '', // Unused. Messages start at index 1.
+	 1 => $thing_name . " updated.",
+	 2 => 'Custom field updated.',  // Probably better do not touch
+	 3 => 'Custom field deleted.',  // Probably better do not touch
+
+	 4 => "Collectable updated.",
+	 5 => $thing_name . " restored to revision",
+	 6 => $thing_name . " published.",
+
+	 7 => $thing_name . " saved.",
+	 8 => $thing_name . " submitted.",
+	 9 => $thing_name . " scheduled.",
+	10 => $thing_name . " draft updated.",
+    );
+    return $msg;
+}
+
+add_filter( 'post_updated_messages', 'lens_post_updated_messages', 10, 1 );
+
+// modify the comment form
+add_filter('comment_form_defaults', 'lens_comment_mod');
+
+function lens_comment_mod( $defaults ) {
+	$defaults['title_reply'] = 'Provide Feedback';
+	$defaults['logged_in_as'] = '';
+	$defaults['title_reply_to'] = 'Provide Feedback for %s';
+	return $defaults;
+}
+
 
 /* --- excerpts ------------------------------------------------------------------------ */
 
